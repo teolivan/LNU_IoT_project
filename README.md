@@ -1,19 +1,19 @@
 # Linneaus University Internet of Things Project
 
-+ **Linneaus University Project //change title**
++ **Climate Measurer**
 + **Olivia Svensson - os222ui**
-+ **Short project overview //edit this**
-+ **Approximate time taken to do this project: 50hrs**
++ **Climate meter - measuring temperature, light, and humidity.**
++ **Approximate time taken to do this project: approximately 20hrs**
 
 
 ## Objective
 Describe why you have chosen to build this specific device. What purpose does it serve? What do you want to do with the data, and what new insights do you think it will give?
 ### Why you chose the project
-I chose this project because...
+I chose this project because of a desire to create a device with multiple sensors as well as actuators. I came to the conclusion that a device which can measure the climate and give insights as to the metrics would be highly useful for several purposes. 
 ### What purpose does it serve
-The projects serves the purpose of...
+The project serves the purpose of gaining data from the current environment surrounding the microcontroller (as well as the sensors and actuators) in order to get valuable insights about the current climate. This device will alert the user if the humidity, light, or temperature goes above or below an unhealthy level. The user is alerted by LEDs which signal every second depending on the sensor data. The values can be adjusted depending on what you would like to monitor (it could be different kinds of plants, yourself, or a bird for example).
 ### What insights you think it will give
-The project will give me a better insight into how microcontrollers work. It will broaden my understanding of communication protocols, and how microcontrollers can communicate with sensors and activators.
+The project will give me a better insight into how microcontrollers work. It will broaden my understanding of communication protocols, and how microcontrollers can communicate with sensors and actuators. Using the device will allow the user to gain insights as to their environment. This is often something which is ignored, so the Climate Measurer will likely provide new insights as to how the environment around you is. 
 
 ## Material 
 Explain all material that is needed. All sensors, where you bought them and their specifications. Please also provide pictures of what you have bought and what you are using.
