@@ -21,6 +21,13 @@ Explain all material that is needed. All sensors, where you bought them and thei
 + Raspberry Pi Pico W
 + Breadboard
 + add more...
+
+| Component | Price | Available at: | Image |
+| ------------- | ------------- | ------------- | ------------- |
+| Raspberry Pi Pico WH | 109kr | https://www.electrokit.com/raspberry-pi-pico-wh | <img src="[https://your-image-url.type](https://www.electrokit.com/cache/ba/700x700-product_41019_41019114_PICO-WH-HERO.jpg)" width="100" height="100"> |
+| Breadboard | 69kr | https://www.electrokit.com/kopplingsdack-840-anslutningar |
+
+
 ### What the different things (sensors, wires, controllers) do - short specifications
 The Raspberry Pi Pico W is a microcontroller which essentially is a small computer. The microcontroller is the so called master, controlling all of the other components (slaves), acting as the brain. The breadboard makes it easier for me to connect all of the devices together, as it provides slots for the different devices to be inserted into, and makes the task of connecting the devices together with wires less messy. 
 ### Where you bought them and how much they cost
