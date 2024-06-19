@@ -29,8 +29,12 @@ Explain all material that is needed. All sensors, where you bought them and thei
 | 1x | USB cable A male - micro B male 1.8m | 39kr | https://www.electrokit.com/usb-kabel-a-hane-micro-b-5p-hane-1.8m | <img src="https://www.electrokit.com/cache/ad/700x700-quick_54_1f_9382_41003290.png" alt="USB Cable A" width="100" height="100"/> |
 | 1x (used 17 out of 20) | Lab cable 40-pin 30cm male/male | 49kr | https://www.electrokit.com/labbsladd-40-pin-30cm-hane/hane | <img src="https://www.electrokit.com/cache/24/700x700-product_41012_41012684_41012684.jpg" alt="Lab Cables" width="100" height="100"/> |
 | 1x | LED 5mm red diffuse 1500mcd | 5kr | https://www.electrokit.com/led-5mm-rod-diffus-1500mcd | <img src="https://www.electrokit.com/upload/product/40307/40307020/40300051.jpg" alt="Red LED" width="100" height="100"/> |
-| 1x | LED 5mm yellow diffuse 1500mcd | 5kr | https://www.electrokit.com/led-5mm-gul-diffus-1500mcd | <img src="https://www.electrokit.com/upload/product/40307/40307021/40300053.jpg" alt="Breadboard" width="100" height="100"/> |
-| 1x | LED 5mm green diffuse 1500mcd | 5kr | https://www.electrokit.com/led-5mm-gron-diffus-80mcd | <img src="https://www.electrokit.com/upload/product/40307/40307023/40300054.jpg" alt="Breadboard" width="100" height="100"/> |
+| 1x | LED 5mm yellow diffuse 1500mcd | 5kr | https://www.electrokit.com/led-5mm-gul-diffus-1500mcd | <img src="https://www.electrokit.com/upload/product/40307/40307021/40300053.jpg" alt="Yellow LED" width="100" height="100"/> |
+| 1x | LED 5mm green diffuse 1500mcd | 5kr | https://www.electrokit.com/led-5mm-gron-diffus-80mcd | <img src="https://www.electrokit.com/upload/product/40307/40307023/40300054.jpg" alt="Green LED" width="100" height="100"/> |
+| 1x | Photoresistor CdS 4-7 kohm | 8kr | https://www.electrokit.com/fotomotstand-cds-4-7-kohm | <img src="https://www.electrokit.com/upload/product/40850/40850001/40850001.jpg" alt="Photoresistor" width="100" height="100"/> |
+| 1x | MCP9700 TO-92 Temperature Sensor | 12kr | https://www.electrokit.com/mcp9700-to-92-temperaturgivare | <img src="https://www.electrokit.com/upload/product/41011/41011628/41010569.jpg" alt="Temperature Sensor" width="100" height="100"/> |
+| 1x | Digital temperature and humidity sensor DHT11 | 49kr | https://www.electrokit.com/digital-temperatur-och-fuktsensor-dht11 | <img src="https://www.electrokit.com/upload/product/41015/41015728/41015728.jpg" alt="Digital Temperature and Humidity Sensor" width="100" height="100"/> |
+
 
 
 ### What the different things (sensors, wires, controllers) do - short specifications
