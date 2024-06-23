@@ -134,6 +134,9 @@ if choice == "1":
             temperature = (voltage - V0C) / TCS # Temperature in Celsius
             #  print("Temperature: {:.2f} °C".format(temperature))
             temperatureEvaluation(name, temperature, min_temperature, max_temperature)
+            
+            # LED evaluation
+            ledEvaluation(humidityLED, lightLED, temperatureLED)
 
         except Exception as error:
             print("Exception occurred", error)
@@ -169,6 +172,9 @@ elif choice == 2:
             temperature = (voltage - V0C) / TCS # Temperature in Celsius
             #  print("Temperature: {:.2f} °C".format(temperature))
             temperatureEvaluation(name, temperature, min_temperature, max_temperature)
+            
+            # LED evaluation
+            ledEvaluation(humidityLED, lightLED, temperatureLED)
 
         except Exception as error:
             print("Exception occurred", error)
@@ -204,6 +210,9 @@ elif choice == 3:
             temperature = (voltage - V0C) / TCS # Temperature in Celsius
             #  print("Temperature: {:.2f} °C".format(temperature))
             temperatureEvaluation(name, temperature, min_temperature, max_temperature)
+
+            # LED evaluation
+            ledEvaluation(humidityLED, lightLED, temperatureLED)
 
         except Exception as error:
             print("Exception occurred", error)
