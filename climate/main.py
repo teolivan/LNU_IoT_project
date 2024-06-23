@@ -2,16 +2,15 @@ import dht
 import machine
 import time
 from machine import ADC, Pin
-#from picozero import LED
 
-# pin setup
-dht11 = dht.DHT11(machine.Pin(22))     # DHT11 Constructor 
-ldr = ADC(Pin(27))                     # LDR Constructor
-led = Pin("LED", Pin.OUT)              # LED Contstructor
-mcp9700 = machine.ADC(26)              # MCP9700 Constructor
+# Pin setup
+dht11 = dht.DHT11(machine.Pin(22))                              # DHT11 Constructor 
+ldr = ADC(Pin(27))                                              # LDR Constructor
+led = Pin("LED", Pin.OUT)                                       # LED Contstructor
+mcp9700 = machine.ADC(26)                                       # MCP9700 Constructor
 red = machine.Pin(19, machine.Pin.OUT)                          # LED 5mm red diffuse 1500mcd Constructor
-green = machine.Pin(20, machine.Pin.OUT)                         # LED 5mm green diffuse 1500mcd Constructor
-yellow = machine.Pin(21, machine.Pin.OUT)                        # LED 5mm yellow diffuse 1500mcd Constructor
+green = machine.Pin(20, machine.Pin.OUT)                        # LED 5mm green diffuse 1500mcd Constructor
+yellow = machine.Pin(21, machine.Pin.OUT)                       # LED 5mm yellow diffuse 1500mcd Constructor
 
 leds = [green, yellow, red]
 max_humidity = 0
@@ -23,7 +22,8 @@ TCS = 0.01  # Temperature coefficient of MCP9700 (10mV/°C or 0.01V/°C)
 VREF = 3.3  # Reference voltage from the system (Raspberry Pi Pico W) (3.3V)
 MAX_ADC_VALUE = 65535  # Maximum value for a 16-bit ADC
 
-# Menu 
+
+# Menu - continues until valid input is received from user
 print("--- Hello and welcome to the Climate Meter ---")
 while True: 
     print("Please choose which plant you want to monitor the health with: ")
@@ -36,8 +36,7 @@ while True:
         print("Sorry, the input was not valid, please choose between 1, 2 or 3")
 
 
-
-
+# Function for evaluating the humidity of the environment around the plant. Prints out an evaluation based on the values received from the DHT11 sensor
 def humidityEvaluation(name, humidity, min_humidity, max_humidity): 
     if humidity > min_humidity and humidity < max_humidity:
         leds[0].toggle()
@@ -55,7 +54,8 @@ def humidityEvaluation(name, humidity, min_humidity, max_humidity):
         leds[2].toggle()
         print("Humidity is " + str(humidity) + " which is very low for a/an " + name) 
 
-    
+
+# Function for evaluating the darkness of the environment around the plant. Prints out an evaluation based on the values received from the LDR sensor    
 def lightEvaluation(name, darkness, min_darkness, max_darkness):
     if darkness > min_darkness and darkness < max_darkness:
         leds[0].toggle()
@@ -74,6 +74,23 @@ def lightEvaluation(name, darkness, min_darkness, max_darkness):
         print("Darkness is " + str(darkness) + " which is way too much for a/an " + name) 
 
 
+# Function for evaluating the temperature of the environment around the plant. Prints out an evaluation based on the values received from the MCP9700 sensor    
+def temperatureEvaluation(name, temperature, min_temperature, max_temperature):
+    if temperature > min_temperature and temperature < max_temperature:
+        leds[0].toggle()
+        print("Temperature is " + str(temperature) + " which is good for a/an " + name)
+    elif temperature < min_temperature and temperature > (min_temperature * 0.9): 
+        leds[1].toggle()
+        print("Temperature is " + str(temperature) + " which is a little cold for a/an " + name)
+    elif darkness < (min_temperature * 0.9): 
+        leds[2].toggle()
+        print("Temperature is " + str(temperature) + " which is way too cold for a/an " + name)
+    elif temperature > max_temperature and temperature < (max_temperature * 1.1):
+        leds[1].toggle()
+        print("Temperature is " + str(temperature) + " which is a little warm for a/an " + name)
+    elif temperature > (max_temperature * 1.1): 
+        leds[2].toggle()
+        print("Temperature is " + str(temperature) + " which is way too warm for a/an " + name)    
 
 
 # Main functionality of the program for the orchid choice
@@ -107,6 +124,7 @@ if choice == "1":
             print("Exception occurred", error)
         time.sleep(1)
 
+
 # Main functionality of the program for the moss choice
 elif choice == 2: 
     min_humidity = 70 # https://mossclerks.co.uk/pages/moss-caring-guide
@@ -137,6 +155,7 @@ elif choice == 2:
         except Exception as error:
             print("Exception occurred", error)
             time.sleep(1)
+
 
 # Main functionality of the program for the cactus choice
 elif choice == 3:  
