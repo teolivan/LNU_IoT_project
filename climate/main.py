@@ -13,9 +13,9 @@ green = machine.Pin(20, machine.Pin.OUT)                        # LED 5mm green 
 yellow = machine.Pin(21, machine.Pin.OUT)                       # LED 5mm yellow diffuse 1500mcd Constructor
 
 leds = [green, yellow, red]
-humidityLED = 0
-lightLED = 0
-temperatureLED = 0
+#humidityLED = 0
+#lightLED = 0
+#temperatureLED = 0
 
 # MCP9700 characteristics
 V0C = 0.5  # Voltage output from MCP9700 at 0°C (0.5V)
@@ -38,7 +38,7 @@ while True:
 
 
 # Function for evaluating the humidity of the environment around the plant. Prints out an evaluation based on the values received from the DHT11 sensor
-def humidityEvaluation(name, humidity, min_humidity, max_humidity): 
+def humidityEvaluation(name, humidity, min_humidity, max_humidity, humidityLED): 
     if humidity > min_humidity and humidity < max_humidity:
         humidityLED = 0
         print("Humidity is " + str(humidity) + " which is good for a/an " + name)
@@ -57,7 +57,7 @@ def humidityEvaluation(name, humidity, min_humidity, max_humidity):
 
 
 # Function for evaluating the darkness of the environment around the plant. Prints out an evaluation based on the values received from the LDR sensor    
-def lightEvaluation(name, darkness, min_darkness, max_darkness):
+def lightEvaluation(name, darkness, min_darkness, max_darkness, lightLED):
     if darkness > min_darkness and darkness < max_darkness:
         lightLED = 0
         print("Darkness is " + str(darkness) + " which is good for a/an " + name)
@@ -76,7 +76,7 @@ def lightEvaluation(name, darkness, min_darkness, max_darkness):
 
 
 # Function for evaluating the temperature of the environment around the plant. Prints out an evaluation based on the values received from the MCP9700 sensor    
-def temperatureEvaluation(name, temperature, min_temperature, max_temperature):
+def temperatureEvaluation(name, temperature, min_temperature, max_temperature, temperatureLED):
     if temperature > min_temperature and temperature < max_temperature:
         temperatureLED = 0
         print("Temperature is " + str(temperature) + " which is good for a/an " + name)
@@ -99,7 +99,7 @@ def temperatureEvaluation(name, temperature, min_temperature, max_temperature):
 def ledEvaluation(humidityLED, lightLED, temperatureLED):
     if(humidityLED == 0 and lightLED == 0 and temperatureLED == 0):
         leds[0].toggle()
-    elif(humidityLED == 1 or lightLED == 1 or temperatureLED == 1):
+    elif(humidityLED == 1 or lightLED == 1 or temperatureLED == 1 and humidityLED != 2 and lightLED != 2 and temperatureLED != 2):
         leds[1].toggle()
     elif(humidityLED == 2 or lightLED == 2 or temperatureLED == 2):
         leds[2].toggle()
@@ -114,6 +114,9 @@ if choice == "1":
     max_darkness = 50 # https://planterhoma.com/blogs/orchid-care/orchid-light-requirement
     min_temperature = 20 # https://www.orchid-tree.com/pages/light-temperature
     max_temperature = 32 # https://www.orchid-tree.com/pages/light-temperature
+    humidityLED = 0
+    lightLED = 0
+    temperatureLED = 0
     while True:
         try:
             # DHT11
@@ -121,26 +124,26 @@ if choice == "1":
             # temperature = dht11.temperature() <-- could measure this, but the MCP9700 sensor is more accurate than the DHT11 at measuring the temperature
             # delta between dht11 and mcp9700 check value for temp, compare 
             humidity = dht11.humidity()
-            humidityEvaluation(name, humidity, min_humidity, max_humidity)
+            humidityEvaluation(name, humidity, min_humidity, max_humidity, humidityLED)
 
             # LDR
             light = ldr.read_u16()
             darkness = round(light / 65535 * 100, 2)
-            lightEvaluation(name, darkness, min_darkness, max_darkness)
+            lightEvaluation(name, darkness, min_darkness, max_darkness, lightLED)
             
             #MCP9700
             raw_adc_value = mcp9700.read_u16() # Read the raw ADC value (16-bit)
             voltage = (raw_adc_value / MAX_ADC_VALUE) * VREF # Convert the raw ADC value to voltage
             temperature = (voltage - V0C) / TCS # Temperature in Celsius
             #  print("Temperature: {:.2f} °C".format(temperature))
-            temperatureEvaluation(name, temperature, min_temperature, max_temperature)
+            temperatureEvaluation(name, temperature, min_temperature, max_temperature, temperatureLED)
             
             # LED evaluation
             ledEvaluation(humidityLED, lightLED, temperatureLED)
 
         except Exception as error:
             print("Exception occurred", error)
-        time.sleep(1)
+        time.sleep(3)
 
 
 # Main functionality of the program for the moss choice
@@ -152,6 +155,9 @@ elif choice == 2:
     max_darkness = 45 # https://greg.app/hypnum-moss-light-requirements/
     min_temperature = 16 # https://greg.app/golden-moss-temperature/
     max_temperature = 27 # https://greg.app/golden-moss-temperature/
+    humidityLED = 0
+    lightLED = 0
+    temperatureLED = 0
     while True:
         try:
             # DHT11
@@ -159,26 +165,26 @@ elif choice == 2:
             # temperature = dht11.temperature() <-- could measure this, but the MCP9700 sensor is more accurate than the DHT11 at measuring the temperature
             # delta between dht11 and mcp9700 check value for temp, compare 
             humidity = dht11.humidity()
-            humidityEvaluation(name, humidity, min_humidity, max_humidity)
+            humidityEvaluation(name, humidity, min_humidity, max_humidity, humidityLED)
 
-             # LDR
+            # LDR
             light = ldr.read_u16()
             darkness = round(light / 65535 * 100, 2)
-            lightEvaluation(name, darkness, min_darkness, max_darkness)   
-           
+            lightEvaluation(name, darkness, min_darkness, max_darkness, lightLED)
+            
             #MCP9700
             raw_adc_value = mcp9700.read_u16() # Read the raw ADC value (16-bit)
             voltage = (raw_adc_value / MAX_ADC_VALUE) * VREF # Convert the raw ADC value to voltage
             temperature = (voltage - V0C) / TCS # Temperature in Celsius
             #  print("Temperature: {:.2f} °C".format(temperature))
-            temperatureEvaluation(name, temperature, min_temperature, max_temperature)
+            temperatureEvaluation(name, temperature, min_temperature, max_temperature, temperatureLED)
             
             # LED evaluation
             ledEvaluation(humidityLED, lightLED, temperatureLED)
 
         except Exception as error:
             print("Exception occurred", error)
-            time.sleep(1)
+        time.sleep(3)
 
 
 # Main functionality of the program for the cactus choice
@@ -190,6 +196,9 @@ elif choice == 3:
     max_darkness = 30 # https://www.gardenhealth.com/advice/plants-flowers/how-to-care-for-cacti-and-succulents
     min_temperature = 21 # https://varnishandvine.com/blogs/cactus-and-plant-information/what-temperatures-can-cacti-survive
     max_temperature = 32 # https://varnishandvine.com/blogs/cactus-and-plant-information/what-temperatures-can-cacti-survive
+    humidityLED = 0
+    lightLED = 0
+    temperatureLED = 0
     while True:
         try:
             # DHT11
@@ -197,26 +206,27 @@ elif choice == 3:
             # temperature = dht11.temperature() <-- could measure this, but the MCP9700 sensor is more accurate than the DHT11 at measuring the temperature
             # delta between dht11 and mcp9700 check value for temp, compare 
             humidity = dht11.humidity()
-            humidityEvaluation(name, humidity, min_humidity, max_humidity)
+            humidityEvaluation(name, humidity, min_humidity, max_humidity, humidityLED)
 
             # LDR
             light = ldr.read_u16()
             darkness = round(light / 65535 * 100, 2)
-            lightEvaluation(name, darkness, min_darkness, max_darkness)
+            lightEvaluation(name, darkness, min_darkness, max_darkness, lightLED)
             
             #MCP9700
             raw_adc_value = mcp9700.read_u16() # Read the raw ADC value (16-bit)
             voltage = (raw_adc_value / MAX_ADC_VALUE) * VREF # Convert the raw ADC value to voltage
             temperature = (voltage - V0C) / TCS # Temperature in Celsius
             #  print("Temperature: {:.2f} °C".format(temperature))
-            temperatureEvaluation(name, temperature, min_temperature, max_temperature)
-
+            temperatureEvaluation(name, temperature, min_temperature, max_temperature, temperatureLED)
+            
             # LED evaluation
             ledEvaluation(humidityLED, lightLED, temperatureLED)
 
         except Exception as error:
             print("Exception occurred", error)
-            time.sleep(1)
+        time.sleep(3)
+
 
 
 
