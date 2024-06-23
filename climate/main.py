@@ -96,9 +96,9 @@ if choice == "1":
 
 # Main functionality of the program for the moss choice
 elif choice == 2: 
-    min_humidity = 55 # https://www.justaddiceorchids.com/orchid-care-blog/just-add-ice-orchid-blog/bid/98302/how-does-humidity-affect-my-orchid
-    max_humidity = 75 # https://www.justaddiceorchids.com/orchid-care-blog/just-add-ice-orchid-blog/bid/98302/how-does-humidity-affect-my-orchid
-    name = "orchid"
+    min_humidity = 70 # https://mossclerks.co.uk/pages/moss-caring-guide
+    max_humidity = 80 # https://mossclerks.co.uk/pages/moss-caring-guide
+    name = "moss"
     while True:
         try:
             # DHT11
@@ -121,9 +121,9 @@ elif choice == 2:
 
 # Main functionality of the program for the cactus choice
 elif choice == 3:  
-    min_humidity = 55 # https://www.justaddiceorchids.com/orchid-care-blog/just-add-ice-orchid-blog/bid/98302/how-does-humidity-affect-my-orchid
-    max_humidity = 75 # https://www.justaddiceorchids.com/orchid-care-blog/just-add-ice-orchid-blog/bid/98302/how-does-humidity-affect-my-orchid
-    name = "orchid"
+    min_humidity = 40 # https://www.justaddiceorchids.com/orchid-care-blog/just-add-ice-orchid-blog/bid/98302/how-does-humidity-affect-my-orchid
+    max_humidity = 60 # https://www.justaddiceorchids.com/orchid-care-blog/just-add-ice-orchid-blog/bid/98302/how-does-humidity-affect-my-orchid
+    name = "cactus"
     while True:
         try:
             # DHT11
