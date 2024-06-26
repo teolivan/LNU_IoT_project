@@ -7,7 +7,6 @@
 
 
 ## Objective
-Describe why you have chosen to build this specific device. What purpose does it serve? What do you want to do with the data, and what new insights do you think it will give?
 ### Why you chose the project
 I chose this project because of a desire to create a device with multiple sensors as well as actuators. I came to the conclusion that a device which can measure the climate and give insights as to the metrics would be highly useful for several purposes. 
 ### What purpose does it serve
