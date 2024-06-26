@@ -87,3 +87,5 @@ Show the final results of your project. Give your final thoughts on how you thin
 ### Pictures
 ![image](https://github.com/teolivan/LNU_IoT_project/blob/main/images/unnamed%20(8).jpg?raw=true)
 ### *Video presentation
+Below is a link to a presentation of the system with an explanation and live demo showing how it works. 
+[![YouTube](http://i.ytimg.com/vi/HP2NcklRaZ4/hqdefault.jpg)](https://www.youtube.com/watch?v=HP2NcklRaZ4)
