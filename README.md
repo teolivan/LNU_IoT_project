@@ -68,13 +68,19 @@ Import core functions of your code here, and don't forget to explain what you ha
 ![image](https://github.com/teolivan/LNU_IoT_project/blob/main/images/main%20functionality.png?raw=true) 
 
 ## Transmitting the Data / Connectivity
-How is the data transmitted to the internet or local server? Describe the package format. All the different steps that are needed in getting the data to your end-point. Explain both the code and choice of wireless protocols.
+The data is transmitted using MQTT protocol. I am using Adafruit IO in order to both store the data, as well as visualize it. The packets which are sent throught the MQTT protocol always has a header, but they can also hve a variable header, as well as a payload. I am using the PUBLISH packages, which contains all three parts (fixed header, variable header, and payload). 
 ![image](https://github.com/teolivan/LNU_IoT_project/blob/main/images/connect.png?raw=true)
+
+This is an image of how the connection is established by creating and connecting a MQTT client to the Adafruit IO. 
 ![image](https://github.com/teolivan/LNU_IoT_project/blob/main/images/senddata.png?raw=true)
+
+This image shows a function which sends data to the feeds, which is done by the client publishing values from the sensors to the corresponding feeds. This function is called every five seconds. 
 ### How often is the data sent?
+The data is sent every five seconds to the feeds by the client, which publishes the values from the sensors. Not all of the data is published to the three feeds at the same time, as Adafruit IO has put limits to how much/often you can publish to the feeds. I put a time.sleep for two seconds after each publishing, which made it possible for me to publish to all three feeds. When I didn't have any sleep between the publishes, only one of the feeds would be published to, which was the first one. 
 ### Which wireless protocols did you use (WiFi, LoRa, etc …)?
+I used WiFi (a wireless local area network, in my case, the one in my apartment) as this was easy to set up. I had WiFi at home, so this was easily accessible. I connected to my WiFi using the SSID and the password. This was stored in a keys.py file which I put in my .gitignore file. I did not use LoRa, even thought this was intriguing, as there is need for a LoRa module in order to connect.
 ### Which transport protocols were used (MQTT, webhook, etc …)
-### *Elaborate on the design choices regarding data transmission and wireless protocols. That is how your choices affect the device range and battery consumption.
+The protocol for transmitting data from the Pico to the feed is called MQTT. This was done by creating a MQTT client, and then connecting the client. The client would publish data to the three feeds. I also used a webhook for a discord server I set up, which sent data as messages every twenty minutes if the temperature was over 30 degrees celsius. Image of this can be found under Automation/triggers of the data. 
 
 ## Presenting the Data
 This part covers the visualization of the data. 
@@ -93,7 +99,9 @@ I activated a webhook link on the temperature values. If the value exceeds 30 de
 
 ## Finalizing the Design
 I had much ease with connecting the hardware components together and programming them. There was some issues with the LEDs, but it got resolved quickly after attending a workshop. I spent a lot of time trying to implement a TIG stack for the project. This took up a lot of time, as I had no experience previously with Docker or any of the other technologies included. This caused issues, as I did not have the proper knowledge for problem solving the errors which occurred. 
+
 I am happy with how the connections turned out, as I put time into trying to make the wiring look nice on the breadboard. I am happy with what I made with the sensors that I bought. I would have wanted to make a bigger project which implemented more sensors, and more complex logic behind it. This would however have required of me to buy more sensors, which I didn't want to. 
+
 As for the software, I believe that it could be developed further. As it is right now, only three options for plants is provided. This could be expanded on. I also was considering making a more complex UI, rather than onloy having the terminal, and then connecting it to the Pico. This would have made the program look much more professional, as an UI provides better user experience and usability. I also believe that the UI could have a section with the data which is stored in the database, presented to the user. I also believe that six more LEDs could have been connected, so that there would be nine LEDs instead of three. If this were to be implemented, then there would be one set of LEDs for each metric (temperature, light, and humidity), which would have made the readings more comprehensible and user friendly. 
 ### Show final results of the project
 ### Pictures
