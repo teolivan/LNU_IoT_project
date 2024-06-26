@@ -32,6 +32,10 @@ MAX_ADC_VALUE = 65535  # Maximum value for a 16-bit ADC
 
 
 # Menu - continues until valid input is received from user
+    # Initialize MQTT client
+
+client = MQTTClient(keys.AIO_CLIENT_ID, keys.AIO_SERVER, keys.AIO_PORT, keys.AIO_USER, keys.AIO_KEY)
+client.connect()
 while True: 
     print("--- Hello and welcome to the Climate Meter ---")
     print("Please choose which plant you want to monitor the health with: ")
@@ -151,19 +155,15 @@ elif choice == "3":
 
 def send_values():
     print("Publishing data to Adafruit IO...")
-    # Initialize MQTT client
-    client = MQTTClient(keys.AIO_USER, keys.AIO_KEY, keys.AIO_SERVER)
-    client.connect()
-
     try:
         client.publish(topic=keys.AIO_TEMPERATURES_FEED, msg=str(temperature))
+        time.sleep(2)
         client.publish(topic=keys.AIO_HUMIDITIES_FEED, msg=str(humidity))
+        time.sleep(2)
         client.publish(topic=keys.AIO_DARKNESS_FEED, msg=str(darkness))
         print("Data published successfully.")
     except Exception as e:
         print("Failed to publish data: ", e)
-    finally:
-        client.disconnect()
 
 
 while True:
