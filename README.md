@@ -32,7 +32,7 @@ The material list is provided below. All of the components used for the project 
 | 1x | Resistor carbon film 0.25W 470ohm (470R) | 1kr | https://www.electrokit.com/cache/82/700x700-product_40810_40810247_40810247.png | <img src="https://www.electrokit.com/cache/82/700x700-product_40810_40810247_40810247.png" alt="Resistor 470ohm" width="100" height="100"/> |
 + All of these materials can be found within the starterkit which Electrokit provides for 399kr https://www.electrokit.com/lnu-starter.
 
-### What the different things (sensors, wires, controllers) do - short specifications
+### What the different things (sensors, wires, controllers) do
 The Raspberry Pi Pico W is a microcontroller which essentially is a small computer. The microcontroller is the so called master, controlling all of the other components (slaves), acting as the brain. The breadboard makes it easier for me to connect all of the actuators and sensors with the microcontroller, as it provides slots for the different devices to be inserted into, and makes the task of connecting the devices together with wires less messy. The wires are used for connecting the components to the microcontroller (both to the different pins, the ground, and the power source). The DHT11 is used for measuring the humidity in this project, but can also be used for measuring the temperature. The MCP9700 is a temperature sensor used for measuring the temperature. The LCD is used for measuring the light. The resistor is used to control the current which flows through to the LCD. The resistor lessens the amount of current, and protects the device (LCD) from being damaged by the current. 
 
 ## Computer Setup 
@@ -44,7 +44,7 @@ The IDE I chose is Visual Studio Code. Visual Studio Code, or VSCode is one of t
 ### How the code is uploaded
 The code is uploaded by pressing "upload to device", and then doing a hard reset. Then turning on the power of the device again. It can also be done by right clicking on the project and then going to pymakr, and then pressing upload project to device. The IDE can sometimes get stuck, which is solved by saving and closing down VSCode, then starting it again and repeating the procedure. Make sure that whenever you have done any changes, that you save the changes, and upload the code to the device, as otherwise, the old code will run on the device. 
 
-### Steps that you needed to do for your computer. Installation of Node.js, extra drivers, etc.
+### Steps that you needed to do for your computer
 Node.js can be downloaded here: https://nodejs.org/en/download/package-manager
 
 In VSCode, go to extensions and then search for "Pymakr", then click install. Pymakr is what we will be using when running the code in VSCode. Create a new Pymakr project by pressing the new icon for Pymakr which appeared, and then press "Create project". Create a new folder to hold the project. Enter the name for the project in the window at the top, click empty (as this is a new project). Select your Pico W device. It is possible that it shows up as some other name than that under "Device". Once you have done this, you are ready to start programming.
