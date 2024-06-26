@@ -85,4 +85,5 @@ Describe the presentation part. How is the dashboard built? How long is the data
 Show the final results of your project. Give your final thoughts on how you think the project went. What could have been done in an other way, or even better? Pictures are nice!
 ### Show final results of the project
 ### Pictures
+![image](https://github.com/teolivan/LNU_IoT_project/blob/main/images/unnamed%20(8).jpg?raw=true)
 ### *Video presentation
