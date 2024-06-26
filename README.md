@@ -43,8 +43,11 @@ In order to flash the Pico WH, you need to connect the USB cable to the Pico WH.
 The IDE I chose is Visual Studio Code. Visual Studio Code, or VSCode is one of the most popular IDEs for software development. I chose it because I am comfortable with the IDE as I have previous experience programming in it. You can download VSCode here: https://code.visualstudio.com/download 
 
 ### How the code is uploaded
+The code is uploaded by pressing "upload to device", and then doing a hard reset. Then turning on the power of the device again. It can also be done by right clicking on the project and then going to pymakr, and then pressing upload project to device. The IDE can sometimes get stuck, which is solved by saving and closing down VSCode, then starting it again and repeating the procedure. Make sure that whenever you have done any changes, that you save the changes, and upload the code to the device, as otherwise, the old code will run on the device. 
+
 ### Steps that you needed to do for your computer. Installation of Node.js, extra drivers, etc.
 Node.js can be downloaded here: https://nodejs.org/en/download/package-manager
+
 In VSCode, go to extensions and then search for "Pymakr", then click install. Pymakr is what we will be using when running the code in VSCode. Create a new Pymakr project by pressing the new icon for Pymakr which appeared, and then press "Create project". Create a new folder to hold the project. Enter the name for the project in the window at the top, click empty (as this is a new project). Select your Pico W device. It is possible that it shows up as some other name than that under "Device". Once you have done this, you are ready to start programming.
 
 ## Putting Everything Together
