@@ -62,7 +62,7 @@ All of the sensors and actuators are wired parallelly. The ground is connected t
 
 ### *Electrical calculations
 The LDR sensor already had a 2000Ω resistance. A resistor with a resistance of 470Ω was added to the series resistance, making the total series resistance 2470Ω. This is in order to limit the current in the circuit. 
-Calculations were also made for the LEDs. The current is 25mA, and the source voltage is 3.3V, and the load voltage is 2V. This makes R = (3.3/2)/0.025 = 52Ω. The resistor with the lowest resistance in the kit I bought had a resistance of 330Ω. I could connect one of those resistors to each LED, however, I felt like the resistance needed was so miniscule that it was not needed to connect the resistors to the LEDs in order to limit the current. I tried the LEDs, and they did not become warm, so I determined it was not necessary.
+Calculations were also made for the LEDs. The current is 25mA, and the source voltage is 3.3V, and the load voltage is 2V. This makes R = (3.3-2)/0.025 = 52Ω. The resistor with the lowest resistance in the kit I bought had a resistance of 330Ω. I could connect one of those resistors to each LED, however, I felt like the resistance needed was so miniscule that it was not needed to connect the resistors to the LEDs in order to limit the current. I tried the LEDs, and they did not become warm, so I determined it was not necessary. Resistors can be added for aesthetic reasons (managing the light emitted from the LEDs, the higher the resistance, the dimmer the light is going to be emitting from the LEDs). 
 
 ## Platform
 Describe your choice of platform. If you have tried different platforms it can be good to provide a comparison.
