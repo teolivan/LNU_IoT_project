@@ -3,7 +3,7 @@
 + **Climate Measurer**
 + **Olivia Svensson - os222ui**
 + **Climate meter - measuring temperature, light, and humidity.**
-+ **Approximate time taken to do this project: approximately 25hrs**
++ **Approximate time taken to do this project: approximately 20hrs**
 
 
 ## Objective
