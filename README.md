@@ -70,9 +70,11 @@ Import core functions of your code here, and don't forget to explain what you ha
 ## Transmitting the Data / Connectivity
 The data is transmitted using MQTT protocol. I am using Adafruit IO in order to both store the data, as well as visualize it. The packets which are sent throught the MQTT protocol always has a header, but they can also hve a variable header, as well as a payload. I am using the PUBLISH packages, which contains all three parts (fixed header, variable header, and payload). 
 ![image](https://github.com/teolivan/LNU_IoT_project/blob/main/images/connect.png?raw=true)
+
 This is an image of how the connection is established by creating and connecting a MQTT client to the Adafruit IO. 
 
 ![image](https://github.com/teolivan/LNU_IoT_project/blob/main/images/senddata.png?raw=true)
+
 This image shows a function which sends data to the feeds, which is done by the client publishing values from the sensors to the corresponding feeds. This function is called every five seconds. 
 
 ### How often is the data sent?
