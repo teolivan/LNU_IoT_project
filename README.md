@@ -96,7 +96,7 @@ This part covers the visualization of the data.
 ### Dashboard.
 ![image](https://github.com/teolivan/LNU_IoT_project/blob/main/images/dashboard.png?raw=true) 
 
-The dashboard has three feeds. One for humidity, one for temperature, and one for the levels of light. All three feeds are presented as linear graphs as this helps visualize the data. The y-axis presents the values, and the x-axis presents the time. 
+The dashboard has three feeds. One for humidity, one for temperature, and one for the levels of light. All three feeds are presented as linear graphs as this helps visualize the data. The y-axis represents the values from the sensors, and the x-axis represents the time. 
 ### How often is data saved in the database.
 The data is saved every five seconds to the database. Due to the limits of transmitting data to the feeds put in place by Adafruit IO, and as I had three feeds, I could not publish to all three feeds at the same time. In order to tackle this issue, I put a two second timer between each publishing of the data to the client. Adafruit IO keeps the values in the database for 30 days, and then eventually deletes it. 
 ### *Explain your choice of database.
