@@ -52,6 +52,8 @@ In VSCode, go to extensions and then search for "Pymakr", then click install. Py
 
 ## Putting Everything Together
 How is all the electronics connected? Describe all the wiring, good if you can show a circuit diagram. Be specific on how to connect everything, and what to think of in terms of resistors, current and voltage. Is this only for a development setup or could it be used in production?
+
+All of the sensors and actuators are wired parallelly. The ground is connected to the side of the breadboard, where the negative current is supposed to flow. The 3V3 pin provides 3.3V power out (power supply), which is connected to the side of the breadboard for the positive current. All of the components are connected to the power supply and the ground. All of the sensors and actuators are provided with 3.3V. The sensors and actuators are connected to GPIO pins on the pico, which stands for General Purpose Input/Output. The DHT11 sensor is connected to the 22nd GPIO pin. The MCP9700 sensor is connected to the 26nd GPIO pin which also works as an analog digital converter (ADC0). The LDR sensor is connected to the 27nd GPIO pin, and also has a resistor connected to it with 470Ω (ohm) resistance for controlling the current flowing to the LDR from the power outlet. The LEDs are connected to the ground and the GPIO pins on the board. The red LED is connected to the 19th GPIO pin. The green LED is connected to the 20th GPIO pin. The yellow LED is connected to the 21st GPIO pin. All of the components are connected to the Pico using male to male lab cables. The Raspberry Pi Pico is connected to the breadboard by pressing it down, connecting the metal pins to the breadboard.
 <img src="https://github.com/teolivan/LNU_IoT_project/blob/main/circuit_diagram/lnu_iot.png?raw=true" alt="wiring for the project"> 
 ![image](https://github.com/teolivan/LNU_IoT_project/assets/74550333/9c38ebdc-695e-4d12-8d54-0cf4df0716f5)
 ![image](https://github.com/teolivan/LNU_IoT_project/blob/main/images/unnamed%20(6).jpg?raw=true) 
@@ -59,6 +61,8 @@ How is all the electronics connected? Describe all the wiring, good if you can s
 <img src="https://github.com/teolivan/LNU_IoT_project/blob/main/circuit_diagram/lnu_iot_schematic.png?raw=true" alt="schematic for the project"> 
 
 ### *Electrical calculations
+The LDR sensor already had a 2000Ω resistance. A resistor with a resistance of 470Ω was added to the series resistance, making the total series resistance 2470Ω. This is in order to limit the current in the circuit. 
+Calculations were also made for the LEDs. The current is 25mA, and the source voltage is 3.3V, and the load voltage is 2V. This makes R = (3.3/2)/0.025 = 52Ω. The resistor with the lowest resistance in the kit I bought had a resistance of 330Ω. I could connect one of those resistors to each LED, however, I felt like the resistance needed was so miniscule that it was not needed to connect the resistors to the LEDs in order to limit the current. I tried the LEDs, and they did not become warm, so I determined it was not necessary.
 
 ## Platform
 Describe your choice of platform. If you have tried different platforms it can be good to provide a comparison.
