@@ -80,6 +80,7 @@ How is the data transmitted to the internet or local server? Describe the packag
 This part covers the visualization of the data. 
 ### Provide visual examples on how the dashboard looks. Pictures needed.
 ![image](https://github.com/teolivan/LNU_IoT_project/blob/main/images/dashboard.png?raw=true) 
+
 The dashboard has three feeds. One for humidity, one for temperature, and one for the levels of light. All three feeds are presented as linear graphs as this helps visualize the data. 
 ### How often is data saved in the database.
 The data is saved every five seconds to the database. Due to the limits of transmitting data to the feeds put in place by Adafruit IO, and as I had three feeds, I could not publish to all three feeds at the same time. In order to tackle this issue, I put a two second timer between each publishing of the data to the client. Adafruit IO keeps the values in the database for 30 days, and then eventually deletes it. 
@@ -87,6 +88,7 @@ The data is saved every five seconds to the database. Due to the limits of trans
 I chose to go with Adafruit IO. I am storing the data in feeds. The data can easily be downloaded if needed. I chose Adafruit IO as I initally tried a TIG stack solution where I was supposed to use an InfluxDB database. I had issues however with connecting the database with Grafana, which I could not manage to resolve, so I settled for an easier solution. Adafruit IO is very user friendly, and much easier to set up. This was the reason for the choice of database.
 ### *Automation/triggers of the data.
 ![image](https://github.com/teolivan/LNU_IoT_project/blob/main/images/discordpic.png?raw=true)
+
 I activated a webhook link on the temperature values. If the value exceeds 30 degrees celsius, the value will be forwarded to the Discord server I set up. This will be done once every 20 minutes. 
 
 ## Finalizing the Design
