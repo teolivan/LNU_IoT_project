@@ -89,7 +89,7 @@ The data is sent every five seconds to the feeds by the client, which publishes 
 ### Which wireless protocols did you use (WiFi, LoRa, etc …)?
 I used WiFi (a wireless local area network, in my case, the one in my apartment) as this was easy to set up. I had WiFi at home, so this was easily accessible. I connected to my WiFi using the SSID and the password. This was stored in a keys.py file which I put in my .gitignore file. I did not use LoRa, even thought this was intriguing, as there is need for a LoRa module in order to connect.
 ### Which transport protocols were used (MQTT, webhook, etc …)
-The protocol for transmitting data from the Pico to the feed is called MQTT. This was done by creating a MQTT client, and then connecting the client. The client would publish data to the three feeds. I also used a webhook for a discord server I set up, which sent data as messages every twenty minutes if the temperature was over 30 degrees celsius. Image of this can be found under Automation/triggers of the data. 
+The protocol for transmitting data from the Pico to the feed is called MQTT. This was done by creating a MQTT client, and then connecting the client to the server. The client would publish data to the three feeds. I also used a webhook for a discord server I set up, which sent data as messages every twenty minutes if the temperature was over 30 degrees celsius. Image of this can be found under Automation/triggers of the data. 
 
 ## Presenting the Data
 This part covers the visualization of the data. 
