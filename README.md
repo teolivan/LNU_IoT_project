@@ -119,5 +119,6 @@ This is a photo of when the application is running. This photo is taken when any
 ### *Video presentation
 Below is a link to a presentation of the system with an explanation and live demo showing how it works. 
 [![YouTube](http://i.ytimg.com/vi/HP2NcklRaZ4/hqdefault.jpg)](https://www.youtube.com/watch?v=HP2NcklRaZ4)
+
 Important to note that I say in the video that the values get published to the client, which is not correct. What I mean is that the client publishes the values to the feeds, which are located on the server.  
 
