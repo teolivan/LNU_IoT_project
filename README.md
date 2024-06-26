@@ -1,9 +1,9 @@
-# Linneaus University Internet of Things Project
+# Linneaus University Internet of Things Project - Climate Measurer
 
 + **Climate Measurer**
 + **Olivia Svensson - os222ui**
-+ **Climate meter - measuring temperature, light, and humidity.**
-+ **Approximate time taken to do this project: approximately 20hrs**
++ **Measuring temperature, light, and humidity.**
++ **Approximate time taken to do this project: approximately 25hrs total**
 
 
 ## Objective
